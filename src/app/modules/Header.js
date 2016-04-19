@@ -14,12 +14,14 @@ import {pinkA200} from 'material-ui/styles/colors';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import FirstTab from './FirstTab';
+
 const _t = Translate.translate;
 
 // load our own translations
-counterpart.registerTranslations('ua', require('../locales/ua'));
-counterpart.registerTranslations('en', require('../locales/en'));
-counterpart.registerTranslations('ru', require('../locales/ru'));
+counterpart.registerTranslations('ua', require('../../locales/ua'));
+counterpart.registerTranslations('en', require('../../locales/en'));
+counterpart.registerTranslations('ru', require('../../locales/ru'));
 counterpart.setLocale('ua');
 
 const muiTheme = getMuiTheme({
@@ -81,9 +83,12 @@ class Main extends React.Component {
                         }
                     />
                     <Tabs>
-                        <Tab label="Item One" className="tab">
+                        <Tab label={ _t('example.tab0') } className="tab">
+                            <FirstTab lang={counterpart.getLocale()} />
+                        </Tab>
+                        <Tab label={ _t('example.tab1') } className="tab">
                             <div>
-                                <h2>Tab One</h2>
+                                <h2>222</h2>
                                 <p>
                                     This is an example tab.
                                 </p>
@@ -93,7 +98,7 @@ class Main extends React.Component {
                                 </p>
                             </div>
                         </Tab>
-                        <Tab label="Item Two" className="tab">
+                        <Tab label={ _t('example.tab2') } className="tab">
                             <div>
                                 <h2>Tab Two</h2>
                                 <p>
