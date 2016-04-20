@@ -16,7 +16,7 @@ module.exports = {
         meltingTemperature: 'Температура плавлення',
         density: 'Густина',
         specificHeat: 'Питома теплоємність',
-        reflection: 'Коефіцієнт відображення',
+        reflection: 'Коефіцієнт відбиття',
         hermalConductivity: 'Теплопровідність металу',
 
         properties: 'Властивості',
