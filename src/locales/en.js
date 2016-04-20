@@ -7,6 +7,7 @@ module.exports = {
         tab0: 'Initial settings',
         tab1: 'Optimal parameters',
         tab2: 'The calculation of the angle',
+        tab3: 'Result',
 
         temperaturaPrimishen: 'The initial temperature of the material: ',
         needSetMaterial: 'The material used: ',

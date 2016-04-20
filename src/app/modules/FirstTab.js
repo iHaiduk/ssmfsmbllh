@@ -27,61 +27,6 @@ const style = {
 },
     items = [];
 
-/*class TableExampleSimple extends React.Component {
-
-    constructor(props, context) {
-        super(props, context);
-
-        this.state = {
-            tepl: null,
-            plt: null,
-            udp: null,
-            koef: null,
-            tplprovod: null
-        };
-    }
-
-    render() {
-
-        return (
-            <Table
-                fixedHeader={true}
-                selectable={false}
-                multiSelectable={false}
-            >
-                <TableHeader displaySelectAll={false} enableSelectAll={false} adjustForCheckbox={false}>
-                    <TableRow>
-                        <TableHeaderColumn>Свойства</TableHeaderColumn>
-                        <TableHeaderColumn>Значение</TableHeaderColumn>
-                    </TableRow>
-                </TableHeader>
-                <TableBody displayRowCheckbox={false}>
-                    <TableRow>
-                        <TableRowColumn>Температура плавления</TableRowColumn>
-                        <TableRowColumn><TextField name="tepl" value={this.props.tepl} />°C</TableRowColumn>
-                    </TableRow>
-                    <TableRow>
-                        <TableRowColumn>Плотность</TableRowColumn>
-                        <TableRowColumn><TextField name="plt" value={this.props.plt} />г/см³</TableRowColumn>
-                    </TableRow>
-                    <TableRow>
-                        <TableRowColumn>Удельная теплоёмкость</TableRowColumn>
-                        <TableRowColumn><TextField name="udp" value={this.props.udp} />Дж/(г*К)</TableRowColumn>
-                    </TableRow>
-                    <TableRow>
-                        <TableRowColumn>Коэффициент отражения</TableRowColumn>
-                        <TableRowColumn><TextField name="koef" value={this.props.koef} /></TableRowColumn>
-                    </TableRow>
-                    <TableRow>
-                        <TableRowColumn>Теплопроводность металла</TableRowColumn>
-                        <TableRowColumn><TextField name="tplprovod" value={this.props.tplprovod} />Вт/(м·К)</TableRowColumn>
-                    </TableRow>
-                </TableBody>
-            </Table>
-        )
-    }
-};*/
-
 class FirstTab extends React.Component {
     constructor(props, context) {
         super(props, context);
