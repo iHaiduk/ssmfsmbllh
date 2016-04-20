@@ -10,7 +10,21 @@ module.exports = {
 
         temperaturaPrimishen: 'Начальная температура материала: ',
         needSetMaterial: 'Используемый материал: ',
-        metalProperties: 'Свойства металла'
-        
+        metalProperties: 'Свойства металла',
+
+        meltingTemperature: 'Температура плавления',
+        density: 'Плотность',
+        specificHeat: 'Удельная теплоёмкость',
+        reflection: 'Коэффициент отражения',
+        hermalConductivity: 'Теплопроводность металла',
+
+        properties: 'Свойства',
+        values: 'Значение',
+
+        gcm: 'г/см³',
+        djkk: 'Дж/(г*К)',
+        vtmk: 'Вт/(м·К)',
+
+
     }
 };

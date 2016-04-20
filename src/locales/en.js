@@ -16,7 +16,14 @@ module.exports = {
         density: 'Density',
         specificHeat: 'Specific heat',
         reflection: 'Reflection coefficient',
-        hermalConductivity: 'The thermal conductivity of metal'
+        hermalConductivity: 'The thermal conductivity of metal',
+
+        properties: 'Properties',
+        values: 'Values',
+
+        gcm: 'g/cm³',
+        djkk: 'J/(K*g)',
+        vtmk: 'W/(m · K)',
 
         
     }

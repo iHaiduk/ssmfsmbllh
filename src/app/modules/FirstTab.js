@@ -191,30 +191,30 @@ class FirstTab extends React.Component {
                     >
                         <TableHeader displaySelectAll={false} enableSelectAll={false} adjustForCheckbox={false}>
                             <TableRow>
-                                <TableHeaderColumn>Свойства</TableHeaderColumn>
-                                <TableHeaderColumn>Значение</TableHeaderColumn>
+                                <TableHeaderColumn>{ _t('example.properties') }</TableHeaderColumn>
+                                <TableHeaderColumn>{ _t('example.values') }</TableHeaderColumn>
                             </TableRow>
                         </TableHeader>
                         <TableBody displayRowCheckbox={false}>
                             <TableRow>
-                                <TableRowColumn>Температура плавления</TableRowColumn>
+                                <TableRowColumn>{ _t('example.meltingTemperature') }</TableRowColumn>
                                 <TableRowColumn><TextField name="tepl" value={this.state.tepl} onChange={this.teplChange} />°C</TableRowColumn>
                             </TableRow>
                             <TableRow>
-                                <TableRowColumn>Плотность</TableRowColumn>
-                                <TableRowColumn><TextField name="plt" value={this.state.plt} onChange={this.pltChange} />г/см³</TableRowColumn>
+                                <TableRowColumn>{ _t('example.density') }</TableRowColumn>
+                                <TableRowColumn><TextField name="plt" value={this.state.plt} onChange={this.pltChange} />{ _t('example.gcm') }</TableRowColumn>
                             </TableRow>
                             <TableRow>
-                                <TableRowColumn>Удельная теплоёмкость</TableRowColumn>
-                                <TableRowColumn><TextField name="udp" value={this.state.udp} onChange={this.udpChange} />Дж/(г*К)</TableRowColumn>
+                                <TableRowColumn>{ _t('example.specificHeat') }</TableRowColumn>
+                                <TableRowColumn><TextField name="udp" value={this.state.udp} onChange={this.udpChange} />{ _t('example.djkk') }</TableRowColumn>
                             </TableRow>
                             <TableRow>
-                                <TableRowColumn>Коэффициент отражения</TableRowColumn>
+                                <TableRowColumn>{ _t('example.reflection') }</TableRowColumn>
                                 <TableRowColumn><TextField name="koef" value={this.state.koef} onChange={this.koefChange} /></TableRowColumn>
                             </TableRow>
                             <TableRow>
-                                <TableRowColumn>Теплопроводность металла</TableRowColumn>
-                                <TableRowColumn><TextField name="tplprovod" value={this.state.tplprovod} onChange={this.tplprovodChange} />Вт/(м·К)</TableRowColumn>
+                                <TableRowColumn>{ _t('example.hermalConductivity') }</TableRowColumn>
+                                <TableRowColumn><TextField name="tplprovod" value={this.state.tplprovod} onChange={this.tplprovodChange} />{ _t('example.vtmk') }</TableRowColumn>
                             </TableRow>
                         </TableBody>
                     </Table>
