@@ -9,6 +9,14 @@ module.exports = {
         tab2: 'The calculation of the angle',
 
         temperaturaPrimishen: 'The initial temperature of the material: ',
+        needSetMaterial: 'The material used: ',
+        metalProperties: 'Metal properties',
+
+        meltingTemperature: 'Melting temperature',
+        density: 'Density',
+        specificHeat: 'Specific heat',
+        reflection: 'Reflection coefficient',
+        hermalConductivity: 'The thermal conductivity of metal'
 
         
     }

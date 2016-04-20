@@ -9,6 +9,8 @@ module.exports = {
         tab2: 'Розрахунок куту',
 
         temperaturaPrimishen: 'Початкова температура матеріалу: ',
+        needSetMaterial: 'Використовуємий матеріал: ',
+        metalProperties: 'Властивості металу'
 
 
     }

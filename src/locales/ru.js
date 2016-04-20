@@ -8,7 +8,9 @@ module.exports = {
         tab1: 'Оптимальные параметры',
         tab2: 'Расчет угла',
 
-        temperaturaPrimishen: 'Начальная температура материала: '
+        temperaturaPrimishen: 'Начальная температура материала: ',
+        needSetMaterial: 'Используемый материал: ',
+        metalProperties: 'Свойства металла'
         
     }
 };
