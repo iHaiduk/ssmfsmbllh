@@ -15,6 +15,9 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import FirstTab from './FirstTab';
+import SecondTab from './SecondTab';
+import ThirdTab from './ThirdTab';
+import FourthTab from './FourthTab';
 
 const _t = Translate.translate;
 
@@ -87,24 +90,13 @@ class Main extends React.Component {
                             <FirstTab lang={counterpart.getLocale()} />
                         </Tab>
                         <Tab label={ _t('example.tab1') } className="tab">
-                            <div>
-                                <h2>222</h2>
-                                <p>
-                                    This is an example tab.
-                                </p>
-                                <p>
-                                    You can put any sort of HTML or react component in here. It even keeps the component
-                                    state!
-                                </p>
-                            </div>
+                            <SecondTab lang={counterpart.getLocale()} />
                         </Tab>
                         <Tab label={ _t('example.tab2') } className="tab">
-                            <div>
-                                <h2>Tab Two</h2>
-                                <p>
-                                    This is another example tab.
-                                </p>
-                            </div>
+                            <ThirdTab lang={counterpart.getLocale()} />
+                        </Tab>
+                        <Tab label={ _t('example.tab3') } className="tab">
+                            <FourthTab lang={counterpart.getLocale()} />
                         </Tab>
                     </Tabs>
                 </div>
