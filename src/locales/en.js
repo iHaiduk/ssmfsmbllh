@@ -21,11 +21,19 @@ module.exports = {
 
         properties: 'Properties',
         values: 'Values',
+        correct: 'Adjustment parameters',
 
         gcm: 'g/cm³',
         djkk: 'J/(K*g)',
         vtmk: 'W/(m · K)',
 
+        name: 'Name',
+        formula: 'Formula',
+        calc: 'Calculation',
+
+        secondTab1: 'Calculation of the heating temperature of the material',
+        secondTab2: 'melting',
+        secondTab3: 'Absorptivity',
         
     }
 };

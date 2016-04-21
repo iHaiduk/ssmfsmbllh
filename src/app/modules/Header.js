@@ -45,7 +45,16 @@ class Main extends React.Component {
 
         this.state = {
             open: false,
-            valueLang: 1
+            valueLang: 1,
+
+            comTemper: 20,
+            correctTepl: 50,
+            materialDefault: null,
+            tepl: null,
+            plt: null,
+            udp: null,
+            koef: null,
+            tplprovod: null
         };
     }
 
@@ -65,6 +74,7 @@ class Main extends React.Component {
     }
 
     render() {
+        let parent = this;
         return (
             <MuiThemeProvider muiTheme={muiTheme}>
                 <div>
@@ -87,16 +97,21 @@ class Main extends React.Component {
                     />
                     <Tabs>
                         <Tab label={ _t('example.tab0') } className="tab">
-                            <FirstTab lang={counterpart.getLocale()} />
+                            <FirstTab lang={counterpart.getLocale()} parent={parent} />
                         </Tab>
                         <Tab label={ _t('example.tab1') } className="tab">
-                            <SecondTab lang={counterpart.getLocale()} />
+                            <SecondTab lang={counterpart.getLocale()} parent={parent} param={{
+                            correctTepl: this.state.correctTepl,
+                            tepl: this.state.tepl,
+                            comTemper: this.state.comTemper,
+                            koef: this.state.koef,
+                            }} />
                         </Tab>
                         <Tab label={ _t('example.tab2') } className="tab">
-                            <ThirdTab lang={counterpart.getLocale()} />
+                            <ThirdTab lang={counterpart.getLocale()} parent={parent} />
                         </Tab>
                         <Tab label={ _t('example.tab3') } className="tab">
-                            <FourthTab lang={counterpart.getLocale()} />
+                            <FourthTab lang={counterpart.getLocale()} parent={parent} />
                         </Tab>
                     </Tabs>
                 </div>
