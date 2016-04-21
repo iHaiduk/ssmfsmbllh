@@ -9,7 +9,7 @@ module.exports = {
         tab2: 'Расчет угла',
         tab3: 'Результат',
 
-        temperaturaPrimishen: 'Начальная температура материала: ',
+        temperaturaPrimishen: 'Начальная температура материала',
         needSetMaterial: 'Используемый материал: ',
         metalProperties: 'Свойства металла',
 

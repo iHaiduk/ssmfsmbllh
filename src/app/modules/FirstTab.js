@@ -118,7 +118,7 @@ class FirstTab extends React.Component {
                     <div
                         style={{width: 'calc(50% - 30px)', padding: '0 30px 0 0', display: 'inline-block', marginBottom: '-35px'}}>
                         <h4>
-                            <span>{_t('example.temperaturaPrimishen')}</span>
+                            <span>{_t('example.temperaturaPrimishen')}, <strong>T<sub>0</sub></strong> :</span>
                             <strong
                                 style={{width: '24px', display: 'inline-block', textAlign: 'center'}}>{this.state.secondSlider}</strong>
                             <span>°C</span>
@@ -160,7 +160,7 @@ class FirstTab extends React.Component {
                         </TableHeader>
                         <TableBody displayRowCheckbox={false}>
                             <TableRow>
-                                <TableRowColumn>{ _t('example.meltingTemperature') }</TableRowColumn>
+                                <TableRowColumn>{ _t('example.meltingTemperature') }, <strong>T<sub>{ _t('example.secondTab2') }</sub></strong></TableRowColumn>
                                 <TableRowColumn><TextField name="tepl" value={this.state.tepl}
                                                            style={{width: '75px'}}
                                                            onChange={this.teplChange}/> <strong>-{this.state.correctTepl}</strong> °C</TableRowColumn>
@@ -192,7 +192,7 @@ class FirstTab extends React.Component {
                                 <TableRowColumn />
                             </TableRow>
                             <TableRow>
-                                <TableRowColumn>{ _t('example.reflection') }</TableRowColumn>
+                                <TableRowColumn>{ _t('example.reflection') }, <strong>R</strong></TableRowColumn>
                                 <TableRowColumn><TextField name="koef" value={this.state.koef}
                                                            style={{width: '75px'}}
                                                            onChange={this.koefChange}/></TableRowColumn>
