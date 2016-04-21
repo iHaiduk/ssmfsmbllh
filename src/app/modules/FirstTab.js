@@ -77,6 +77,7 @@ class FirstTab extends React.Component {
     };
 
     koefChange(event, value) {
+        this.props.parent.setState({koef: value});
         this.setState({koef: value});
     };
 
