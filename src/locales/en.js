@@ -9,7 +9,7 @@ module.exports = {
         tab2: 'The calculation of the angle',
         tab3: 'Result',
 
-        temperaturaPrimishen: 'The initial temperature of the material: ',
+        temperaturaPrimishen: 'The initial temperature of the material',
         needSetMaterial: 'The material used: ',
         metalProperties: 'Metal properties',
 
