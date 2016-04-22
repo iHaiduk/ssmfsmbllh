@@ -34,6 +34,14 @@ module.exports = {
         secondTab1: 'Calculation of the heating temperature of the material',
         secondTab2: 'melting',
         secondTab3: 'Absorptivity',
-        
+
+        secondTab4: 'Processing mode',
+        secondTab5: 'Power calculation',
+        secondTab6: 'Speed calculation',
+        secondTab7: 'Calculation of the radius',
+
+        secondTab8: 'Power',
+        secondTab9: 'Speed',
+        secondTab10: 'Radius',
     }
 };
