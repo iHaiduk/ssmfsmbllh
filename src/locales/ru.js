@@ -35,7 +35,14 @@ module.exports = {
         secondTab2: 'пл',
         secondTab3: 'Поглощательная способность',
         
+        secondTab4: 'Режим обработки',
+        secondTab5: 'Расчет мощности',
+        secondTab6: 'Расчет скорости',
+        secondTab7: 'Расчет радиуса',
         
-        
+        secondTab8: 'Мощность',
+        secondTab9: 'Скорость',
+        secondTab10: 'Радиус',
+
     }
 };

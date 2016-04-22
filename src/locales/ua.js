@@ -34,5 +34,14 @@ module.exports = {
         secondTab1: 'Розрахунок температури нагріву тіла',
         secondTab2: 'пл',
         secondTab3: 'Поглинальна здатність',
+        
+        secondTab4: 'Режим обробки',
+        secondTab5: 'Розрахунок потужності',
+        secondTab6: 'Розрахунок швидкості',
+        secondTab7: 'Розрахунок радіусу',
+
+        secondTab8: 'Потужність',
+        secondTab9: 'Швидкість',
+        secondTab10: 'Радіус',
     }
 };
