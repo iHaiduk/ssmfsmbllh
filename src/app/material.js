@@ -10,7 +10,7 @@ export default [
             ru: 'Алюминий'
         },
         tepl: 660, // Температура плавления °C
-        koef: 0.9835, // Коэффициент отражения
+        koef: 0.22, // Коэффициент отражения http://www.tehnology-pro.ru/koefficient-otrazheniya-alyuminiya.html
         tplprovod: 2.18, // теплопроводность металла
         a: 0.9 // температуропроводность
     },

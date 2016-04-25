@@ -13,13 +13,11 @@ export default {
         a,
         tplprovod){
 
-        console.log(P,
-            r,
-            T,
-            T0,
-            A,
-            a,
-            tplprovod)
+        if(P == undefined || r == undefined || T == undefined || T0 == undefined || A == undefined || a == undefined || tplprovod == undefined) {
+            return {
+                t: 0, z: 0, v: 0
+            }
+        }
 
 
         let _T = (T - T0);
@@ -42,6 +40,13 @@ export default {
             v5 = math.eval(`${v1/v2} ^ (1/2)`),
             v = (v5 * v3) / v4;
 
+        console.log()
+
+        if(String(t) == 'NaN' || String(t) == 'Infinity' || String(z) == 'NaN' || String(z) == 'Infinity' || String(v) == 'NaN' || String(v) == 'Infinity') {
+            return {
+                t: 0, z: 0, v: 0
+            }
+        }
         return {t, z, v};
         
     }
