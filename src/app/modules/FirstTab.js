@@ -34,9 +34,8 @@ class FirstTab extends React.Component {
         this.handleSecondSlider = this.handleSecondSlider.bind(this);
         this.materialChange = this.materialChange.bind(this);
         this.teplChange = this.teplChange.bind(this);
-        this.pltChange = this.pltChange.bind(this);
-        this.udpChange = this.udpChange.bind(this);
         this.koefChange = this.koefChange.bind(this);
+        this.aChange = this.aChange.bind(this);
         this.tplprovodChange = this.tplprovodChange.bind(this);
         this.handlecorrectTepl = this.handlecorrectTepl.bind(this);
 
@@ -46,8 +45,7 @@ class FirstTab extends React.Component {
             materialDefault: null,
             materials: materials,
             tepl: '',
-            plt: '',
-            udp: '',
+            a: '',
             koef: '',
             tplprovod: ''
         };
@@ -68,12 +66,9 @@ class FirstTab extends React.Component {
         this.setState({tepl: value});
     };
 
-    pltChange(event, value) {
-        this.setState({plt: value});
-    };
-
-    udpChange(event, value) {
-        this.setState({udp: value});
+    aChange(event, value) {
+        this.props.parent.setState({a: value});
+        this.setState({a: value});
     };
 
     koefChange(event, value) {
@@ -90,9 +85,8 @@ class FirstTab extends React.Component {
         const obj = {
             materialDefault: value,
             tepl: materials[value].tepl,
-            plt: materials[value].plt,
-            udp: materials[value].udp,
             koef: materials[value].koef,
+            a: materials[value].a,
             tplprovod: materials[value].tplprovod
         };
 
@@ -176,19 +170,10 @@ class FirstTab extends React.Component {
                                 </TableRowColumn>
                             </TableRow>
                             <TableRow>
-                                <TableRowColumn>{ _t('example.density') }</TableRowColumn>
-                                <TableRowColumn><TextField name="plt" value={this.state.plt}
+                                <TableRowColumn>{ _t('example.density') }, <strong>a</strong></TableRowColumn>
+                                <TableRowColumn><TextField name="a" value={this.state.a}
                                                            style={{width: '75px'}}
-                                                           onChange={this.pltChange}/>{ _t('example.gcm') }
-                                </TableRowColumn>
-                                <TableRowColumn />
-                            </TableRow>
-                            <TableRow>
-                                <TableRowColumn>{ _t('example.specificHeat') }</TableRowColumn>
-                                <TableRowColumn><TextField name="udp" value={this.state.udp}
-                                                           style={{width: '75px'}}
-                                                           onChange={this.udpChange}/>{ _t('example.djkk') }
-                                </TableRowColumn>
+                                                           onChange={this.aChange}/>{ _t('example.cm2c') }</TableRowColumn>
                                 <TableRowColumn />
                             </TableRow>
                             <TableRow>

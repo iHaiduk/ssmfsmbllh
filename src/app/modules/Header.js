@@ -51,8 +51,7 @@ class Main extends React.Component {
             correctTepl: 50,
             materialDefault: null,
             tepl: null,
-            plt: null,
-            udp: null,
+            a: null,
             koef: null,
             tplprovod: null
         };
@@ -102,9 +101,11 @@ class Main extends React.Component {
                         <Tab label={ _t('example.tab1') } className="tab">
                             <SecondTab lang={counterpart.getLocale()} parent={parent} param={{
                             correctTepl: this.state.correctTepl,
+                            tplprovod: this.state.tplprovod,
                             tepl: this.state.tepl,
                             comTemper: this.state.comTemper,
                             koef: this.state.koef,
+                            a: this.state.a,
                             }} />
                         </Tab>
                         <Tab label={ _t('example.tab2') } className="tab">

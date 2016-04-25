@@ -14,7 +14,7 @@ module.exports = {
         metalProperties: 'Metal properties',
 
         meltingTemperature: 'Melting temperature',
-        density: 'Density',
+        density: 'A heat capacity',
         specificHeat: 'Specific heat',
         reflection: 'Reflection coefficient',
         hermalConductivity: 'The thermal conductivity of metal',
@@ -26,6 +26,7 @@ module.exports = {
         gcm: 'g/cm³',
         djkk: 'J/(K*g)',
         vtmk: 'W/(m · K)',
+        cm2c: 'cm²/s',
 
         name: 'Name',
         formula: 'Formula',
@@ -43,5 +44,7 @@ module.exports = {
         secondTab8: 'Power',
         secondTab9: 'Speed',
         secondTab10: 'Radius',
+        secondTab11: 'Time exposure',
+        secondTab12: 'Depth warming',
     }
 };
