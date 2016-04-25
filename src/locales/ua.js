@@ -14,8 +14,7 @@ module.exports = {
         metalProperties: 'Властивості металу',
 
         meltingTemperature: 'Температура плавлення',
-        density: 'Густина',
-        specificHeat: 'Питома теплоємність',
+        density: 'Температуропровідність',
         reflection: 'Коефіцієнт відбиття',
         hermalConductivity: 'Теплопровідність металу',
 
@@ -26,6 +25,7 @@ module.exports = {
         gcm: 'г/см³',
         djkk: 'Дж/(г*К)',
         vtmk: 'Вт/(м·К)',
+        cm2c: 'см²/c',
         
         name: 'Назва',
         formula: 'Формула',
@@ -43,5 +43,7 @@ module.exports = {
         secondTab8: 'Потужність',
         secondTab9: 'Швидкість',
         secondTab10: 'Радіус',
+        secondTab11: 'Час опромінення',
+        secondTab12: 'Глибина прогріву',
     }
 };

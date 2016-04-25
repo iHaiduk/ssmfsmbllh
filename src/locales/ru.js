@@ -14,8 +14,7 @@ module.exports = {
         metalProperties: 'Свойства металла',
 
         meltingTemperature: 'Температура плавления',
-        density: 'Плотность',
-        specificHeat: 'Удельная теплоёмкость',
+        density: 'Температуропроводность',
         reflection: 'Коэффициент отражения',
         hermalConductivity: 'Теплопроводность металла',
 
@@ -26,6 +25,7 @@ module.exports = {
         gcm: 'г/см³',
         djkk: 'Дж/(г*К)',
         vtmk: 'Вт/(м·К)',
+        cm2c: 'см²/c',
         
         name: 'Название',
         formula: 'Формула',
@@ -43,6 +43,8 @@ module.exports = {
         secondTab8: 'Мощность',
         secondTab9: 'Скорость',
         secondTab10: 'Радиус',
+        secondTab11: 'Время облучения',
+        secondTab12: 'Глубина прогрева',
 
     }
 };

@@ -8,6 +8,7 @@ import TextField from 'material-ui/TextField';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
 import counterpart from 'counterpart';
+import formulas from './formulas';
 
 counterpart.registerTranslations('ua', require('../../locales/ua'));
 counterpart.registerTranslations('en', require('../../locales/en'));
@@ -30,14 +31,29 @@ class SecondTab extends React.Component {
         super(props, context);
 
         this.modeChange = this.modeChange.bind(this);
+        this.powerChange = this.powerChange.bind(this);
+        this.speedChange = this.speedChange.bind(this);
+        this.radiusChange = this.radiusChange.bind(this);
 
         this.state = {
-            modeDefault: null
+            modeDefault: null,
+            power: 0,
+            speed: 0,
+            radius: 0
         };
     }
 
     modeChange(event, value) {
         this.setState({modeDefault: value});
+    }
+    powerChange(event, value) {
+        this.setState({power: value});
+    }
+    speedChange(event, value) {
+        this.setState({speed: value});
+    }
+    radiusChange(event, value) {
+        this.setState({radius: value});
     }
 
     render() {
@@ -48,6 +64,10 @@ class SecondTab extends React.Component {
         if (this.props.param.koef) {
             Res2 = math.round(math.eval(`1 - ${this.props.param.koef}`), 4);
         }
+        
+        let resultSpeed = formulas.speed(this.state.power, this.state.radius / 10, Res1, Res2, this.props.param.koef, this.props.param.a, this.props.param.tplprovod);//formulas.speed(0.2, 1500, 0.06, 0.2, 0.1, 1000);;
+
+        console.log(resultSpeed)
 
         return (
             <div>
@@ -76,21 +96,21 @@ class SecondTab extends React.Component {
                                 position: 'absolute',
                                 marginLeft: '10%'
                             }}>
-                            <TextField name="tepl" value={this.state.tepl}
+                            <TextField name="tepl" value={this.state.power}
                                        disabled={!(this.state.modeDefault == 1 || this.state.modeDefault == 2)}
                                        floatingLabelText={ _t('example.secondTab8') }
                                        style={{width: 'calc(33% - 30px)', margin: '0 15px'}}
-                                       onChange={this.teplChange}/>
-                            <TextField name="tepl" value={this.state.tepl}
+                                       onChange={this.powerChange}/>
+                            <TextField name="tepl" value={this.state.speed}
                                        disabled={!(this.state.modeDefault == 0 || this.state.modeDefault == 2)}
                                        floatingLabelText={ _t('example.secondTab9') }
                                        style={{width: 'calc(33% - 30px)', margin: '0 15px'}}
-                                       onChange={this.teplChange}/>
-                            <TextField name="tepl" value={this.state.tepl}
+                                       onChange={this.speedChange}/>
+                            <TextField name="tepl" value={this.state.radius}
                                        disabled={!(this.state.modeDefault == 1 || this.state.modeDefault == 0)}
                                        floatingLabelText={ _t('example.secondTab10') }
                                        style={{width: 'calc(33% - 30px)', margin: '0 15px'}}
-                                       onChange={this.teplChange}/>
+                                       onChange={this.radiusChange}/>
                         </div>
 
                     </div>
@@ -123,6 +143,18 @@ class SecondTab extends React.Component {
                                 <TableRowColumn>A = 1 - {this.props.param.koef}</TableRowColumn>
                                 <TableRowColumn>{Res2}</TableRowColumn>
                             </TableRow>
+                            <TableRow>
+                                <TableRowColumn>{ _t('example.secondTab11') }</TableRowColumn>
+                                <TableRowColumn></TableRowColumn>
+                                <TableRowColumn></TableRowColumn>
+                                <TableRowColumn>{ math.round(resultSpeed.t, 2) } нс</TableRowColumn>
+                            </TableRow>
+                            <TableRow>
+                                <TableRowColumn>{ _t('example.secondTab12') }</TableRowColumn>
+                                <TableRowColumn></TableRowColumn>
+                                <TableRowColumn></TableRowColumn>
+                                <TableRowColumn>{ math.round(resultSpeed.z, 2) } мм</TableRowColumn>
+                            </TableRow>
                             { (() => {
 
                                 if (this.state.modeDefault == 0) {
@@ -140,7 +172,7 @@ class SecondTab extends React.Component {
                                             <TableRowColumn>{ _t('example.secondTab9') }</TableRowColumn>
                                             <TableRowColumn></TableRowColumn>
                                             <TableRowColumn></TableRowColumn>
-                                            <TableRowColumn></TableRowColumn>
+                                            <TableRowColumn>{ math.round(resultSpeed.v / 100, 2) } м/хв</TableRowColumn>
                                         </TableRow>
                                     )
                                 } else if (this.state.modeDefault == 2) {
@@ -155,18 +187,6 @@ class SecondTab extends React.Component {
                                 }
 
                             })()}
-                            <TableRow>
-                                <TableRowColumn></TableRowColumn>
-                                <TableRowColumn></TableRowColumn>
-                                <TableRowColumn></TableRowColumn>
-                                <TableRowColumn></TableRowColumn>
-                            </TableRow>
-                            <TableRow>
-                                <TableRowColumn></TableRowColumn>
-                                <TableRowColumn></TableRowColumn>
-                                <TableRowColumn></TableRowColumn>
-                                <TableRowColumn></TableRowColumn>
-                            </TableRow>
                         </TableBody>
                     </Table>
                 </Paper>
