@@ -26,6 +26,9 @@ module.exports = {
         djkk: 'Дж/(г*К)',
         vtmk: 'Вт/(м·К)',
         cm2c: 'см²/c',
+        vt: 'Вт',
+        mhv: 'м/хв',
+        mm: 'мм',
         
         name: 'Название',
         formula: 'Формула',
@@ -45,6 +48,10 @@ module.exports = {
         secondTab10: 'Радиус',
         secondTab11: 'Время облучения',
         secondTab12: 'Глубина прогрева',
+        
+        secondTab13: 'Мощность, Вт',
+        secondTab14: 'Скорость, м/хв',
+        secondTab15: 'Радиус, мм',
 
     }
 };

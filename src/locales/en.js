@@ -27,6 +27,9 @@ module.exports = {
         djkk: 'J/(K*g)',
         vtmk: 'W/(m · K)',
         cm2c: 'cm²/s',
+        vt: 'W',
+        mhv: 'm/min',
+        mm: 'mm',
 
         name: 'Name',
         formula: 'Formula',
@@ -46,5 +49,9 @@ module.exports = {
         secondTab10: 'Radius',
         secondTab11: 'Time exposure',
         secondTab12: 'Depth warming',
+
+        secondTab13: 'Power, W',
+        secondTab14: 'Speed, m/min',
+        secondTab15: 'Radius, mm',
     }
 };

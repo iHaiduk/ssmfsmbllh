@@ -19,7 +19,6 @@ export default {
             }
         }
 
-
         let _T = (T - T0);
 
         let q = (A * P) / (math.pi * r * r);
@@ -31,16 +30,7 @@ export default {
         let z1 = (4 * a * t) / math.pi,
             z = math.eval(`${z1} ^ (1/2)`);
 
-        let v1 = A * P,
-            v2 = math.pi * tplprovod,
-            v2_t = math.eval(`${_T} ^ (3/2)`),
-            v3 = 8 * a * v2_t,
-            v3_t = math.eval(`${z} ^ (3/2)`),
-            v4 = math.pi * T * v3_t,
-            v5 = math.eval(`${v1/v2} ^ (1/2)`),
-            v = (v5 * v3) / v4;
-
-        console.log()
+        let v = math.eval(`((4096 * (${a} ^ 4) * (${A} ^ 8) * (${P} ^ 8))/( (${math.pi} ^ 12) * (${r} ^ 12) * ( ${_T} ^ 4) * (${tplprovod} ^ 8))) ^ (1/4) `);
 
         if(String(t) == 'NaN' || String(t) == 'Infinity' || String(z) == 'NaN' || String(z) == 'Infinity' || String(v) == 'NaN' || String(v) == 'Infinity') {
             return {
@@ -49,5 +39,79 @@ export default {
         }
         return {t, z, v};
         
+    },
+    
+    power(
+        V,
+        r,
+        T,
+        T0,
+        A,
+        a,
+        tplprovod) {
+
+        if(V == undefined || r == undefined || T == undefined || T0 == undefined || A == undefined || a == undefined || tplprovod == undefined) {
+            return {
+                t: 0, z: 0, v: 0
+            }
+        }
+        let _T = (T - T0);
+
+        V *= 100;
+
+        let p = math.eval(` ( ( (${math.pi} ^ 12) * (${r} ^ 12) * (${tplprovod} ^ 8) * ( ${_T} ^ 4) * ( ${V} ^ 4) ) / (4096 * (${a} ^ 4) * (${A} ^ 8) ) )^ (1/8)`);
+
+        let q = (A * p) / (math.pi * r * r);
+        let t1 = (tplprovod * _T) / q;
+        let t2 = math.pi / (4 * a);
+
+        let t = (t1 * t1) * t2;
+
+        let z1 = (4 * a * t) / math.pi,
+            z = math.eval(`${z1} ^ (1/2)`);
+
+        if(String(t) == 'NaN' || String(t) == 'Infinity' || String(z) == 'NaN' || String(z) == 'Infinity' || String(p) == 'NaN' || String(p) == 'Infinity') {
+            return {
+                t: 0, z: 0, p: 0
+            }
+        }
+        return {t, z, p};
+    },
+
+    radius(
+        V,
+        P,
+        T,
+        T0,
+        A,
+        a,
+        tplprovod) {
+        
+        if(V == undefined || P == undefined || T == undefined || T0 == undefined || A == undefined || a == undefined || tplprovod == undefined) {
+            return {
+                t: 0, z: 0, v: 0
+            }
+        }
+        
+        let _T = (T - T0);
+        V *= 100;
+        
+        let r = math.eval(` ( (4096 * (${a} ^ 4) * (${A} ^ 8) * (${P} ^ 8) ) / ( (${math.pi} ^ 12) * (${tplprovod} ^ 8) * (${_T} ^ 4) * ( ${V} ^ 4) ) ) ^ (1/12) `);
+
+        let q = (A * P) / (math.pi * r * r);
+        let t1 = (tplprovod * _T) / q;
+        let t2 = math.pi / (4 * a);
+
+        let t = (t1 * t1) * t2;
+
+        let z1 = (4 * a * t) / math.pi,
+            z = math.eval(`${z1} ^ (1/2)`);
+
+        if(String(t) == 'NaN' || String(t) == 'Infinity' || String(z) == 'NaN' || String(z) == 'Infinity' || String(r) == 'NaN' || String(r) == 'Infinity') {
+            return {
+                t: 0, z: 0, r: 0
+            }
+        }
+        return {t, z, r};
     }
 }

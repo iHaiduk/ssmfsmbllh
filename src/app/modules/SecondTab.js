@@ -59,15 +59,38 @@ class SecondTab extends React.Component {
     render() {
         counterpart.setLocale(this.props.lang);
 
-        let Res1 = this.props.param.tepl - this.props.param.correctTepl - this.props.param.comTemper,
-            Res2;
+        let Res1 = this.props.param.tepl - this.props.param.correctTepl,
+            Res2 = this.props.param.comTemper, Res3;
         if (this.props.param.koef) {
-            Res2 = math.round(math.eval(`1 - ${this.props.param.koef}`), 4);
+            Res3 = math.round(math.eval(`1 - ${this.props.param.koef}`), 4);
         }
-        
-        let resultSpeed = formulas.speed(this.state.power, this.state.radius / 10, Res1, Res2, this.props.param.koef, this.props.param.a, this.props.param.tplprovod);//formulas.speed(0.2, 1500, 0.06, 0.2, 0.1, 1000);;
 
-        console.log(resultSpeed)
+        let resultSpeed,
+            resultPower,
+            resultRadius,
+            otherData = {t: 0, z: 0};
+
+        if (this.state.modeDefault == 0) {
+            resultPower = formulas.power(~~this.state.speed, ~~this.state.radius / 10, Res1, Res2, this.props.param.koef, this.props.param.a, this.props.param.tplprovod);//formulas.speed(0.2, 1500, 0.06, 0.2, 0.1, 1000);;
+            otherData = {
+                t: resultPower.t || 0,
+                z: resultPower.z || 0
+            };
+        }
+        if (this.state.modeDefault == 1) {
+            resultSpeed = formulas.speed(~~this.state.power, ~~this.state.radius / 10, Res1, Res2, this.props.param.koef, this.props.param.a, this.props.param.tplprovod);//formulas.speed(0.2, 1500, 0.06, 0.2, 0.1, 1000);;
+            otherData = {
+                t: resultSpeed.t || 0,
+                z: resultSpeed.z || 0
+            };
+        }
+        if (this.state.modeDefault == 2) {
+            resultRadius = formulas.radius(~~this.state.speed, ~~this.state.power, Res1, Res2, this.props.param.koef, this.props.param.a, this.props.param.tplprovod);//formulas.speed(0.2, 1500, 0.06, 0.2, 0.1, 1000);;
+            otherData = {
+                t: resultRadius.t || 0,
+                z: resultRadius.z || 0
+            };
+        }
 
         return (
             <div>
@@ -98,17 +121,17 @@ class SecondTab extends React.Component {
                             }}>
                             <TextField name="tepl" value={this.state.power}
                                        disabled={!(this.state.modeDefault == 1 || this.state.modeDefault == 2)}
-                                       floatingLabelText={ _t('example.secondTab8') }
+                                       floatingLabelText={ _t('example.secondTab13') }
                                        style={{width: 'calc(33% - 30px)', margin: '0 15px'}}
                                        onChange={this.powerChange}/>
                             <TextField name="tepl" value={this.state.speed}
                                        disabled={!(this.state.modeDefault == 0 || this.state.modeDefault == 2)}
-                                       floatingLabelText={ _t('example.secondTab9') }
+                                       floatingLabelText={ _t('example.secondTab14') }
                                        style={{width: 'calc(33% - 30px)', margin: '0 15px'}}
                                        onChange={this.speedChange}/>
                             <TextField name="tepl" value={this.state.radius}
                                        disabled={!(this.state.modeDefault == 1 || this.state.modeDefault == 0)}
-                                       floatingLabelText={ _t('example.secondTab10') }
+                                       floatingLabelText={ _t('example.secondTab15') }
                                        style={{width: 'calc(33% - 30px)', margin: '0 15px'}}
                                        onChange={this.radiusChange}/>
                         </div>
@@ -141,19 +164,19 @@ class SecondTab extends React.Component {
                                     style={{whiteSpace: 'normal'}}>{ _t('example.secondTab3') }</TableRowColumn>
                                 <TableRowColumn>A = 1 - R</TableRowColumn>
                                 <TableRowColumn>A = 1 - {this.props.param.koef}</TableRowColumn>
-                                <TableRowColumn>{Res2}</TableRowColumn>
+                                <TableRowColumn>{Res3}</TableRowColumn>
                             </TableRow>
                             <TableRow>
                                 <TableRowColumn>{ _t('example.secondTab11') }</TableRowColumn>
                                 <TableRowColumn></TableRowColumn>
                                 <TableRowColumn></TableRowColumn>
-                                <TableRowColumn>{ math.round(resultSpeed.t, 2) } нс</TableRowColumn>
+                                <TableRowColumn>{ math.round(otherData.t, 2) } нс</TableRowColumn>
                             </TableRow>
                             <TableRow>
                                 <TableRowColumn>{ _t('example.secondTab12') }</TableRowColumn>
                                 <TableRowColumn></TableRowColumn>
                                 <TableRowColumn></TableRowColumn>
-                                <TableRowColumn>{ math.round(resultSpeed.z, 2) } мм</TableRowColumn>
+                                <TableRowColumn>{ math.round(otherData.z, 2) } мм</TableRowColumn>
                             </TableRow>
                             { (() => {
 
@@ -163,7 +186,7 @@ class SecondTab extends React.Component {
                                             <TableRowColumn>{ _t('example.secondTab8') }</TableRowColumn>
                                             <TableRowColumn></TableRowColumn>
                                             <TableRowColumn></TableRowColumn>
-                                            <TableRowColumn></TableRowColumn>
+                                            <TableRowColumn>{ resultPower.p ? math.round(resultPower.p, 2) : 0 } { _t('example.vt') }</TableRowColumn>
                                         </TableRow>
                                     )
                                 } else if (this.state.modeDefault == 1) {
@@ -172,7 +195,7 @@ class SecondTab extends React.Component {
                                             <TableRowColumn>{ _t('example.secondTab9') }</TableRowColumn>
                                             <TableRowColumn></TableRowColumn>
                                             <TableRowColumn></TableRowColumn>
-                                            <TableRowColumn>{ math.round(resultSpeed.v / 100, 2) } м/хв</TableRowColumn>
+                                            <TableRowColumn>{ resultSpeed.v ? math.round(resultSpeed.v / 100, 2) : 0 } { _t('example.mhv') }</TableRowColumn>
                                         </TableRow>
                                     )
                                 } else if (this.state.modeDefault == 2) {
@@ -181,7 +204,7 @@ class SecondTab extends React.Component {
                                             <TableRowColumn>{ _t('example.secondTab10') }</TableRowColumn>
                                             <TableRowColumn></TableRowColumn>
                                             <TableRowColumn></TableRowColumn>
-                                            <TableRowColumn></TableRowColumn>
+                                            <TableRowColumn>{ resultRadius.r ? math.round(resultRadius.r * 10, 2) : 0 } { _t('example.mm') }</TableRowColumn>
                                         </TableRow>
                                     )
                                 }
