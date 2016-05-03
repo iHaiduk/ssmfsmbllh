@@ -204,7 +204,7 @@ class FirstTab extends React.Component {
                                 <TableRowColumn />
                             </TableRow>
                             <TableRow>
-                                <TableRowColumn>{ _t('example.metalDensity') }</TableRowColumn>
+                                <TableRowColumn>{ _t('example.heatcapacityMetal') }</TableRowColumn>
                                 <TableRowColumn><TextField name="plt" value={this.state.plt}
                                                            style={{width: '75px'}}
                                                            onChange={this.pltChange}/>{ _t('example.djgrad') }
@@ -212,7 +212,7 @@ class FirstTab extends React.Component {
                                 <TableRowColumn />
                             </TableRow>
                             <TableRow>
-                                <TableRowColumn>{ _t('example.heatcapacityMetal') }</TableRowColumn>
+                                <TableRowColumn>{ _t('example.metalDensity') }</TableRowColumn>
                                 <TableRowColumn><TextField name="teploem" value={this.state.teploem}
                                                            style={{width: '75px'}}
                                                            onChange={this.teploemChange}/>{ _t('example.gcm') }

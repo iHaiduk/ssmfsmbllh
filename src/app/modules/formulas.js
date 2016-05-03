@@ -20,6 +20,7 @@ export default {
         }
 
         let _T = (T - T0);
+        tplprovod = tplprovod/100;
 
         let q = (A * P) / (math.pi * r * r);
         let t1 = (tplprovod * _T) / q;
@@ -56,6 +57,7 @@ export default {
             }
         }
         let _T = (T - T0);
+        tplprovod = tplprovod/100;
 
         V *= 100;
 
@@ -95,6 +97,7 @@ export default {
         
         let _T = (T - T0);
         V *= 100;
+        tplprovod = tplprovod/100;
         
         let r = math.eval(` ( (4096 * (${a} ^ 4) * (${A} ^ 8) * (${P} ^ 8) ) / ( (${math.pi} ^ 12) * (${tplprovod} ^ 8) * (${_T} ^ 4) * ( ${V} ^ 4) ) ) ^ (1/12) `);
 
@@ -115,7 +118,7 @@ export default {
         return {t, z, r};
     },
 
-    angle(radius, speed, tplprovod, plt, teploem){
+    angle(radius, speed, tplprovod, plt, teploem, s0 = 0, T, T0){
         let t = 0,
             l = 0;
 
@@ -125,10 +128,23 @@ export default {
         if( tplprovod != undefined && parseFloat(tplprovod) > 0 &&
             plt != undefined && parseFloat(plt) > 0 &&
             teploem != undefined && parseFloat(teploem) > 0) {
-            l = tplprovod / (plt * teploem);
+            plt = plt / 1000;
+            l = teploem / (plt * tplprovod * 1000);
         }
 
-        let s1 = math.eval(` ( ${l} * ${t} ) ^(1/2) `);
-        console.log(l, t, s1)
+        let s1 = math.eval(` ( ${l} * ${t} ) ^(1/2) `),
+            d = 0,
+            lth = 0,
+            lb = 0;
+
+        if(s1 != undefined && s1 > 0 && s0 != undefined && s0 > 0) {
+            d = (parseFloat(s1) * 1000) / parseFloat(s0);
+        }
+
+        lth = math.eval(` ((2 * (2^(1/2)))/((3 * ${math.pi}) ^ 2)) * (${T0} ^(1/4)) * (${T} ^ (-5/4))  `);
+
+        lb = math.eval(` ${lth} * ${T-T0} * (${d} ^ 2) * ((3 * ${math.pi}) - (8 * ${d})) `);
+        
+        return lb * 1000;
     }
 }

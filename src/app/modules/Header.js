@@ -123,6 +123,9 @@ class Main extends React.Component {
                             tplprovod: this.state.tplprovod,
                             plt: this.state.plt,
                             teploem: this.state.teploem,
+                            tepl: this.state.tepl,
+                            correctTepl: this.state.correctTepl,
+                            comTemper: this.state.comTemper,
                             }}/>
                         </Tab>
                         <Tab label={ _t('example.tab3') } className="tab">

@@ -31,7 +31,8 @@ module.exports = {
         vt: 'Вт',
         mhv: 'м/хв',
         mm: 'мм',
-        djgrad: 'Дж/г·град',
+        djgrad: 'Дж/кг·K',
+        grad: 'град',
 
         name: 'Название',
         formula: 'Формула',
@@ -57,5 +58,9 @@ module.exports = {
         secondTab14: 'Скорость, м/хв',
         secondTab15: 'Радиус, мм',
 
+        secondTab17: 'Толщина пластины, мм',
+        secondTab18: 'Нужный угол, K',
+
+        secondTab19: 'Угол за один проход',
     }
 };

@@ -32,7 +32,8 @@ module.exports = {
         vt: 'W',
         mhv: 'm/min',
         mm: 'mm',
-        djgrad: 'J/g·deg',
+        djgrad: 'J/kg·K',
+        grad: 'deg',
 
         name: 'Name',
         formula: 'Formula',
@@ -57,5 +58,10 @@ module.exports = {
         secondTab13: 'Power, W',
         secondTab14: 'Speed, m/min',
         secondTab15: 'Radius, mm',
+
+        secondTab17: 'Plate thickness, mm',
+        secondTab18: 'The desired angle, K',
+
+        secondTab19: 'Angle in one pass',
     }
 };
