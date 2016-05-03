@@ -77,17 +77,29 @@ class FirstTab extends React.Component {
     };
 
     tplprovodChange(event, value) {
+        this.props.parent.setState({tplprovod: value});
         this.setState({tplprovod: value});
     };
 
-    materialChange(event, value) {
+    pltChange(event, value) {
+        this.props.parent.setState({plt: value});
+        this.setState({plt: value});
+    };
 
+    teploemChange(event, value) {
+        this.props.parent.setState({teploem: value});
+        this.setState({teploem: value});
+    };
+
+    materialChange(event, value) {
         const obj = {
             materialDefault: value,
             tepl: materials[value].tepl,
             koef: materials[value].koef,
             a: materials[value].a,
-            tplprovod: materials[value].tplprovod
+            tplprovod: materials[value].tplprovod,
+            plt: materials[value].plt,
+            teploem: materials[value].teploem,
         };
 
         this.props.parent.setState(obj);
@@ -188,6 +200,22 @@ class FirstTab extends React.Component {
                                 <TableRowColumn><TextField name="tplprovod" value={this.state.tplprovod}
                                                            style={{width: '75px'}}
                                                            onChange={this.tplprovodChange}/>{ _t('example.vtmk') }
+                                </TableRowColumn>
+                                <TableRowColumn />
+                            </TableRow>
+                            <TableRow>
+                                <TableRowColumn>{ _t('example.metalDensity') }</TableRowColumn>
+                                <TableRowColumn><TextField name="plt" value={this.state.plt}
+                                                           style={{width: '75px'}}
+                                                           onChange={this.pltChange}/>{ _t('example.djgrad') }
+                                </TableRowColumn>
+                                <TableRowColumn />
+                            </TableRow>
+                            <TableRow>
+                                <TableRowColumn>{ _t('example.heatcapacityMetal') }</TableRowColumn>
+                                <TableRowColumn><TextField name="teploem" value={this.state.teploem}
+                                                           style={{width: '75px'}}
+                                                           onChange={this.teploemChange}/>{ _t('example.gcm') }
                                 </TableRowColumn>
                                 <TableRowColumn />
                             </TableRow>

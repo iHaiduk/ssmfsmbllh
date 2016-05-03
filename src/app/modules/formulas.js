@@ -113,5 +113,22 @@ export default {
             }
         }
         return {t, z, r};
+    },
+
+    angle(radius, speed, tplprovod, plt, teploem){
+        let t = 0,
+            l = 0;
+
+        if(radius != undefined && parseFloat(radius) > 0 && speed != undefined && parseFloat(speed) > 0) {
+            t = (2 * parseFloat(radius)) / parseFloat(speed);
+        }
+        if( tplprovod != undefined && parseFloat(tplprovod) > 0 &&
+            plt != undefined && parseFloat(plt) > 0 &&
+            teploem != undefined && parseFloat(teploem) > 0) {
+            l = tplprovod / (plt * teploem);
+        }
+
+        let s1 = math.eval(` ( ${l} * ${t} ) ^(1/2) `);
+        console.log(l, t, s1)
     }
 }

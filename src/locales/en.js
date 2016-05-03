@@ -18,6 +18,8 @@ module.exports = {
         specificHeat: 'Specific heat',
         reflection: 'Reflection coefficient',
         hermalConductivity: 'The thermal conductivity of metal',
+        metalDensity: 'Metal density',
+        heatcapacityMetal: 'The heat capacity of the metal',
 
         properties: 'Properties',
         values: 'Values',
@@ -30,6 +32,7 @@ module.exports = {
         vt: 'W',
         mhv: 'm/min',
         mm: 'mm',
+        djgrad: 'J/g·deg',
 
         name: 'Name',
         formula: 'Formula',
@@ -49,6 +52,7 @@ module.exports = {
         secondTab10: 'Radius',
         secondTab11: 'Time exposure',
         secondTab12: 'Depth warming',
+        secondTab16: 'Diameter',
 
         secondTab13: 'Power, W',
         secondTab14: 'Speed, m/min',

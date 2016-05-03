@@ -39,7 +39,8 @@ class SecondTab extends React.Component {
             modeDefault: null,
             power: 0,
             speed: 0,
-            radius: 0
+            radius: 0,
+            pp: 0
         };
     }
 
@@ -59,6 +60,8 @@ class SecondTab extends React.Component {
     render() {
         counterpart.setLocale(this.props.lang);
 
+        console.log(this.state.pp)
+
         let Res1 = this.props.param.tepl - this.props.param.correctTepl,
             Res2 = this.props.param.comTemper, Res3;
         if (this.props.param.koef) {
@@ -71,25 +74,28 @@ class SecondTab extends React.Component {
             otherData = {t: 0, z: 0};
 
         if (this.state.modeDefault == 0) {
-            resultPower = formulas.power(~~this.state.speed, ~~this.state.radius / 10, Res1, Res2, this.props.param.koef, this.props.param.a, this.props.param.tplprovod);//formulas.speed(0.2, 1500, 0.06, 0.2, 0.1, 1000);;
+            resultPower = formulas.power(parseFloat(this.state.speed), parseFloat(this.state.radius) / 10, Res1, Res2, this.props.param.koef, this.props.param.a, this.props.param.tplprovod);//formulas.speed(0.2, 1500, 0.06, 0.2, 0.1, 1000);;
             otherData = {
                 t: resultPower.t || 0,
                 z: resultPower.z || 0
             };
+            this.props.parent.updatePram(parseFloat(this.state.speed) * 1000, parseFloat(this.state.radius));
         }
         if (this.state.modeDefault == 1) {
-            resultSpeed = formulas.speed(~~this.state.power, ~~this.state.radius / 10, Res1, Res2, this.props.param.koef, this.props.param.a, this.props.param.tplprovod);//formulas.speed(0.2, 1500, 0.06, 0.2, 0.1, 1000);;
+            resultSpeed = formulas.speed(parseFloat(this.state.power), parseFloat(this.state.radius) / 10, Res1, Res2, this.props.param.koef, this.props.param.a, this.props.param.tplprovod);//formulas.speed(0.2, 1500, 0.06, 0.2, 0.1, 1000);;
             otherData = {
                 t: resultSpeed.t || 0,
                 z: resultSpeed.z || 0
             };
+            this.props.parent.updatePram(~~resultSpeed.v * 10, parseFloat(this.state.radius));
         }
         if (this.state.modeDefault == 2) {
-            resultRadius = formulas.radius(~~this.state.speed, ~~this.state.power, Res1, Res2, this.props.param.koef, this.props.param.a, this.props.param.tplprovod);//formulas.speed(0.2, 1500, 0.06, 0.2, 0.1, 1000);;
+            resultRadius = formulas.radius(parseFloat(this.state.speed), parseFloat(this.state.power), Res1, Res2, this.props.param.koef, this.props.param.a, this.props.param.tplprovod);//formulas.speed(0.2, 1500, 0.06, 0.2, 0.1, 1000);;
             otherData = {
                 t: resultRadius.t || 0,
                 z: resultRadius.z || 0
             };
+            this.props.parent.updatePram(parseFloat(this.state.speed) * 1000, ~~resultRadius.r * 10);
         }
 
         return (
@@ -170,13 +176,13 @@ class SecondTab extends React.Component {
                                 <TableRowColumn>{ _t('example.secondTab11') }</TableRowColumn>
                                 <TableRowColumn></TableRowColumn>
                                 <TableRowColumn></TableRowColumn>
-                                <TableRowColumn>{ math.round(otherData.t, 2) } нс</TableRowColumn>
+                                <TableRowColumn title={otherData.t}>{ math.round(otherData.t, 2) } нс</TableRowColumn>
                             </TableRow>
                             <TableRow>
                                 <TableRowColumn>{ _t('example.secondTab12') }</TableRowColumn>
                                 <TableRowColumn></TableRowColumn>
                                 <TableRowColumn></TableRowColumn>
-                                <TableRowColumn>{ math.round(otherData.z, 2) } мм</TableRowColumn>
+                                <TableRowColumn title={otherData.z}>{ math.round(otherData.z, 2) } мм</TableRowColumn>
                             </TableRow>
                             { (() => {
 
@@ -186,7 +192,7 @@ class SecondTab extends React.Component {
                                             <TableRowColumn>{ _t('example.secondTab8') }</TableRowColumn>
                                             <TableRowColumn></TableRowColumn>
                                             <TableRowColumn></TableRowColumn>
-                                            <TableRowColumn>{ resultPower.p ? math.round(resultPower.p, 2) : 0 } { _t('example.vt') }</TableRowColumn>
+                                            <TableRowColumn title={resultPower.p ? resultPower.p : 0}>{ resultPower.p ? math.round(resultPower.p, 2) : 0 } { _t('example.vt') }</TableRowColumn>
                                         </TableRow>
                                     )
                                 } else if (this.state.modeDefault == 1) {
@@ -195,7 +201,7 @@ class SecondTab extends React.Component {
                                             <TableRowColumn>{ _t('example.secondTab9') }</TableRowColumn>
                                             <TableRowColumn></TableRowColumn>
                                             <TableRowColumn></TableRowColumn>
-                                            <TableRowColumn>{ resultSpeed.v ? math.round(resultSpeed.v / 100, 2) : 0 } { _t('example.mhv') }</TableRowColumn>
+                                            <TableRowColumn title={resultSpeed.v ? resultSpeed.v / 100 : 0}>{ resultSpeed.v ? math.round(resultSpeed.v / 100, 2) : 0 } { _t('example.mhv') }</TableRowColumn>
                                         </TableRow>
                                     )
                                 } else if (this.state.modeDefault == 2) {
@@ -204,7 +210,19 @@ class SecondTab extends React.Component {
                                             <TableRowColumn>{ _t('example.secondTab10') }</TableRowColumn>
                                             <TableRowColumn></TableRowColumn>
                                             <TableRowColumn></TableRowColumn>
-                                            <TableRowColumn>{ resultRadius.r ? math.round(resultRadius.r * 10, 2) : 0 } { _t('example.mm') }</TableRowColumn>
+                                            <TableRowColumn title={resultRadius.r ? resultRadius.r * 10 : 0}>{ resultRadius.r ? math.round(resultRadius.r * 10, 2) : 0 } { _t('example.mm') }</TableRowColumn>
+                                        </TableRow>
+                                    )
+                                }
+
+                            })()}{ (() => {
+                                if (this.state.modeDefault == 2) {
+                                    return (
+                                        <TableRow>
+                                            <TableRowColumn>{ _t('example.secondTab16') }</TableRowColumn>
+                                            <TableRowColumn></TableRowColumn>
+                                            <TableRowColumn></TableRowColumn>
+                                            <TableRowColumn title={resultRadius.r ? resultRadius.r * 20 : 0}>{ resultRadius.r ? math.round(resultRadius.r * 20, 2) : 0 } { _t('example.mm') }</TableRowColumn>
                                         </TableRow>
                                     )
                                 }

@@ -17,6 +17,8 @@ module.exports = {
         density: 'Температуропроводность',
         reflection: 'Коэффициент отражения',
         hermalConductivity: 'Теплопроводность металла',
+        metalDensity: 'Плотность металла',
+        heatcapacityMetal: 'Теплоемкость металла',
 
         properties: 'Свойства',
         values: 'Значение',
@@ -29,7 +31,8 @@ module.exports = {
         vt: 'Вт',
         mhv: 'м/хв',
         mm: 'мм',
-        
+        djgrad: 'Дж/г·град',
+
         name: 'Название',
         formula: 'Формула',
         calc: 'Расчет',
@@ -48,6 +51,7 @@ module.exports = {
         secondTab10: 'Радиус',
         secondTab11: 'Время облучения',
         secondTab12: 'Глубина прогрева',
+        secondTab16: 'Диаметр',
         
         secondTab13: 'Мощность, Вт',
         secondTab14: 'Скорость, м/хв',

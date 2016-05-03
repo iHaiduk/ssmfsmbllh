@@ -20,7 +20,7 @@ const config = {
         //node_modules: ["web_modules", "node_modules"]  (Default Settings)
     },
     //Server Configuration options
-    devServer:{
+    devServer: {
         contentBase: 'src/www',  //Relative directory for base of server
         devtool: 'eval',
         hot: true,        //Live-reload
@@ -42,6 +42,19 @@ const config = {
         new TransferWebpackPlugin([
             {from: 'www'},
         ], path.resolve(__dirname, "src")),
+        new webpack.DefinePlugin({
+            'process.env':{
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
+        /*new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: { warnings: false },
+            comments: false,
+            mangle: true,
+            minimize: true
+        }),*/
     ],
     module: {
         loaders: [

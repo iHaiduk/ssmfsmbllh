@@ -53,7 +53,11 @@ class Main extends React.Component {
             tepl: null,
             a: null,
             koef: null,
-            tplprovod: null
+            tplprovod: null,
+            plt: null,
+            teploem: null,
+            r: 0,
+            v: 0
         };
     }
 
@@ -70,6 +74,10 @@ class Main extends React.Component {
     setRULang() {
         this.setState({valueLang: 3});
         counterpart.setLocale('ru');
+    }
+
+    updatePram(v, r) {
+        console.log(v, r)
     }
 
     render() {
@@ -109,7 +117,13 @@ class Main extends React.Component {
                             }} />
                         </Tab>
                         <Tab label={ _t('example.tab2') } className="tab">
-                            <ThirdTab lang={counterpart.getLocale()} parent={parent} />
+                            <ThirdTab lang={counterpart.getLocale()} parent={parent} param={{
+                            radius: this.state.r,
+                            speed: this.state.v,
+                            tplprovod: this.state.tplprovod,
+                            plt: this.state.plt,
+                            teploem: this.state.teploem,
+                            }}/>
                         </Tab>
                         <Tab label={ _t('example.tab3') } className="tab">
                             <FourthTab lang={counterpart.getLocale()} parent={parent} />

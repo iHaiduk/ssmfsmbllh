@@ -6,7 +6,7 @@ module.exports = {
         title: 'Розрахунок режимів для згинання матеріалу',
         tab0: 'Початкові параметри',
         tab1: 'Оптимальні параметри',
-        tab2: 'Розрахунок куту',
+        tab2: 'Розрахунок кута',
         tab3: 'Результат',
 
         temperaturaPrimishen: 'Початкова температура матеріалу',
@@ -17,6 +17,8 @@ module.exports = {
         density: 'Температуропровідність',
         reflection: 'Коефіцієнт відбиття',
         hermalConductivity: 'Теплопровідність металу',
+        metalDensity: 'Щільність металу',
+        heatcapacityMetal: 'Теплоємність металу',
 
         properties: 'Властивості',
         values: 'Значення',
@@ -29,6 +31,7 @@ module.exports = {
         vt: 'Вт',
         mhv: 'м/хв',
         mm: 'мм',
+        djgrad: 'Дж/г·град',
 
         name: 'Назва',
         formula: 'Формула',
@@ -48,6 +51,7 @@ module.exports = {
         secondTab10: 'Радіус',
         secondTab11: 'Час опромінення',
         secondTab12: 'Глибина прогріву',
+        secondTab16: 'Діаметр',
 
         secondTab13: 'Потужність, Вт',
         secondTab14: 'Швидкість, м/хв',
