@@ -60,8 +60,6 @@ class SecondTab extends React.Component {
     render() {
         counterpart.setLocale(this.props.lang);
 
-        console.log(this.state.pp)
-
         let Res1 = this.props.param.tepl - this.props.param.correctTepl,
             Res2 = this.props.param.comTemper, Res3;
         if (this.props.param.koef) {

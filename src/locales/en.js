@@ -28,7 +28,7 @@ module.exports = {
         gcm: 'g/cm³',
         djkk: 'J/(K*g)',
         vtmk: 'W/(m · K)',
-        cm2c: 'cm²/s',
+        cm2c: ' · 10⁶ m²/s',
         vt: 'W',
         mhv: 'm/min',
         mm: 'mm',

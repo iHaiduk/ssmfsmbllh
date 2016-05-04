@@ -64,6 +64,7 @@ class SecondTab extends React.Component {
             this.props.param.tplprovod,
             this.props.param.plt,
             this.props.param.teploem,
+            this.props.param.a,
             this.state.thickness,
             t,
             this.props.param.comTemper)), n = 0;
@@ -73,7 +74,6 @@ class SecondTab extends React.Component {
         }
 
         console.log(angel, n);
-
 
 
         return (
