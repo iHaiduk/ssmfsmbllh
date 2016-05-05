@@ -77,7 +77,7 @@ class SecondTab extends React.Component {
                 t: resultPower.t || 0,
                 z: resultPower.z || 0
             };
-            this.props.parent.updatePram(parseFloat(this.state.speed) * 1000, parseFloat(this.state.radius));
+            this.props.parent.updatePram(parseFloat(this.state.speed) * 1000, parseFloat(this.state.radius), resultPower.p);
         }
         if (this.state.modeDefault == 1) {
             resultSpeed = formulas.speed(parseFloat(this.state.power), parseFloat(this.state.radius) / 10, Res1, Res2, this.props.param.koef, this.props.param.a, this.props.param.tplprovod);//formulas.speed(0.2, 1500, 0.06, 0.2, 0.1, 1000);;
@@ -85,7 +85,7 @@ class SecondTab extends React.Component {
                 t: resultSpeed.t || 0,
                 z: resultSpeed.z || 0
             };
-            this.props.parent.updatePram(~~resultSpeed.v * 10, parseFloat(this.state.radius));
+            this.props.parent.updatePram(~~resultSpeed.v * 10, parseFloat(this.state.radius), this.state.power);
         }
         if (this.state.modeDefault == 2) {
             resultRadius = formulas.radius(parseFloat(this.state.speed), parseFloat(this.state.power), Res1, Res2, this.props.param.koef, this.props.param.a, this.props.param.tplprovod);//formulas.speed(0.2, 1500, 0.06, 0.2, 0.1, 1000);;
@@ -93,7 +93,7 @@ class SecondTab extends React.Component {
                 t: resultRadius.t || 0,
                 z: resultRadius.z || 0
             };
-            this.props.parent.updatePram(parseFloat(this.state.speed) * 1000, ~~resultRadius.r * 10);
+            this.props.parent.updatePram(parseFloat(this.state.speed) * 1000, ~~resultRadius.r * 10, this.state.power);
         }
 
         return (

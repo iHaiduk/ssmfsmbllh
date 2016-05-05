@@ -30,10 +30,13 @@ class SecondTab extends React.Component {
         super(props, context);
         this.thicknessChange = this.thicknessChange.bind(this);
         this.degreesChange = this.degreesChange.bind(this);
+        this.powerChange = this.powerChange.bind(this);
+        this.speedChange = this.speedChange.bind(this);
 
         this.state = {
             speed: 0,
             radius: 0,
+            power: 0,
             degrees: null,
             thickness: null
         };
@@ -46,36 +49,36 @@ class SecondTab extends React.Component {
     degreesChange(event, value) {
         this.setState({degrees: value});
     }
+    powerChange(event, value) {
+        this.setState({power: ~~value});
+    }
+    speedChange(event, value) {
+        this.setState({speed: value});
+    }
 
     render() {
         counterpart.setLocale(this.props.lang);
 
         let self = this;
 
-        this.props.parent.updatePram = function(speed, radius){
-            self.setState({speed, radius});
+        this.props.parent.updatePram = function(speed, radius, power){
+            speed = ~~speed / 1000;
+            self.setState({speed, radius, power});
         };
 
-        let t = this.props.param.tepl - this.props.param.correctTepl;
-
-        let angel = (formulas.angle(
-            this.state.radius,
-            this.state.speed,
-            this.props.param.tplprovod,
-            this.props.param.plt,
-            this.props.param.teploem,
+        let angel = formulas.angle(
             this.props.param.a,
-            this.state.thickness,
-            t,
-            this.props.param.comTemper)), n = 0;
+            ~~this.state.power,
+            ~~this.props.param.lth,
+            parseFloat(this.state.speed) * 1000,
+            this.props.param.teploem,
+            this.props.param.plt,
+            this.state.thickness), n = 0;
 
         if(this.state.degrees != undefined && parseFloat(this.state.degrees) > 0 && angel > 0) {
             n = parseFloat(this.state.degrees) / angel;
         }
-
-        console.log(angel, n);
-
-
+        
         return (
             <div>
                 <Paper style={style} zDepth={2}>
@@ -94,6 +97,22 @@ class SecondTab extends React.Component {
                                    floatingLabelText={ _t('example.secondTab18') }
                                    style={{width: 'calc(50% - 30px)', margin: '0 15px'}}
                                    onChange={this.degreesChange}/>
+                    </div>
+                    <div
+                        style={{
+                                width: 'calc(80% - 40px)',
+                                padding: '3px 20px 0px 20px',
+                                display: 'inline-block',
+                                marginLeft: '10%'
+                            }}>
+                        <TextField name="tepl" value={this.state.power}
+                                   floatingLabelText={ _t('example.secondTab13') }
+                                   style={{width: 'calc(50% - 30px)', margin: '0 15px'}}
+                                   onChange={this.powerChange}/>
+                        <TextField name="tepl" value={this.state.speed }
+                                   floatingLabelText={ _t('example.secondTab14') }
+                                   style={{width: 'calc(50% - 30px)', margin: '0 15px'}}
+                                   onChange={this.speedChange}/>
                     </div>
                     <Table
                         fixedHeader={true}
@@ -116,9 +135,9 @@ class SecondTab extends React.Component {
                             </TableRow>
                             <TableRow>
                                 <TableRowColumn
-                                    style={{whiteSpace: 'normal'}}>{ _t('example.secondTab19') }</TableRowColumn>
+                                    style={{whiteSpace: 'normal'}}>{ _t('example.secondTab20') }</TableRowColumn>
                                 <TableRowColumn></TableRowColumn>
-                                <TableRowColumn title={n ? n : 0}>{ n ? Math.ceil(n) : 0 } { _t('example.grad') }</TableRowColumn>
+                                <TableRowColumn title={n ? n : 0}>{ n ? Math.ceil(n) : 0 }</TableRowColumn>
                             </TableRow>
                         </TableBody>
                     </Table>

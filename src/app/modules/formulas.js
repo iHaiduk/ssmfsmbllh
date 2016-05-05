@@ -126,28 +126,12 @@ export default {
         return {t, z, r};
     },
 
-    angle(radius, speed, tplprovod, plt, teploem, l, s0 = 0, T, T0){
-        let t = 0;
-
-        if(radius != undefined && parseFloat(radius) > 0 && speed != undefined && parseFloat(speed) > 0) {
-            t = (2 * parseFloat(radius)) / parseFloat(speed);
+    angle(A, power, lth, speed, teploem, plt, thickness) {
+        let lb = math.eval(` (4 * ${A} * ${power} * ${lth}) / ( ${speed} * ${teploem} * ${plt} * ${thickness} * ${thickness}) `);
+        if(String(lb) != 'Infinity' && lb > 0){
+            return parseFloat(lb);
+        } else {
+            return 0;
         }
-
-        console.log(t, radius, speed, l)
-
-        let s1 = math.eval(` ( ${l} * ${t} ) ^(1/2) `),
-            d = 0,
-            lth = 0,
-            lb = 0;
-
-        if(s1 != undefined && s1 > 0 && s0 != undefined && s0 > 0) {
-            d = (parseFloat(s1)) / parseFloat(s0);
-        }
-
-        lth = math.eval(` ((2 * (2^(1/2)))/((3 * ${math.pi}) ^ 2)) * (${T0} ^(1/4)) * (${T} ^ (-5/4))  `);
-
-        lb = math.eval(` ${lth} * ${T-T0} * (${d} ^ 2) * ((3 * ${math.pi}) - (8 * ${d})) `);
-        
-        return Math.abs(lb);
     }
 }

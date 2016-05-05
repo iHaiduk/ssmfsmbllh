@@ -19,6 +19,7 @@ module.exports = {
         hermalConductivity: 'Теплопроводность металла',
         metalDensity: 'Плотность металла',
         heatcapacityMetal: 'Теплоемкость металла',
+        ltec: 'Коэффициент теплового линейного расширения',
 
         properties: 'Свойства',
         values: 'Значение',
@@ -33,6 +34,7 @@ module.exports = {
         mm: 'мм',
         djgrad: 'Дж/кг·K',
         grad: 'град',
+        ltecznak: ' · 10⁻⁶/ ℃',
 
         name: 'Название',
         formula: 'Формула',
@@ -62,5 +64,6 @@ module.exports = {
         secondTab18: 'Нужный угол, K',
 
         secondTab19: 'Угол за один проход',
+        secondTab20: 'Количество проходов',
     }
 };

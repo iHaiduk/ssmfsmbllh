@@ -19,6 +19,7 @@ module.exports = {
         hermalConductivity: 'Теплопровідність металу',
         metalDensity: 'Щільність металу',
         heatcapacityMetal: 'Теплоємність металу',
+        ltec: 'Коефіцієнт теплового лінійного розширення',
 
         properties: 'Властивості',
         values: 'Значення',
@@ -33,6 +34,7 @@ module.exports = {
         mm: 'мм',
         djgrad: 'Дж/кг·K',
         grad: 'град',
+        ltecznak: ' · 10⁻⁶/ ℃',
 
         name: 'Назва',
         formula: 'Формула',
@@ -62,6 +64,7 @@ module.exports = {
         secondTab18: 'Потрібний кут, K',
 
         secondTab19: 'Кут за один прохід',
+        secondTab20: 'Кількість проходів',
 
     }
 };

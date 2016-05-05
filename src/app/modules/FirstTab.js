@@ -47,7 +47,8 @@ class FirstTab extends React.Component {
             tepl: '',
             a: '',
             koef: '',
-            tplprovod: ''
+            tplprovod: '',
+            lth: null
         };
     }
 
@@ -64,32 +65,37 @@ class FirstTab extends React.Component {
     teplChange(event, value) {
         this.props.parent.setState({tepl: value});
         this.setState({tepl: value});
-    };
+    }
+
+    lthChange(event, value) {
+        this.props.parent.setState({lth: value});
+        this.setState({lth: value});
+    }
 
     aChange(event, value) {
         this.props.parent.setState({a: value});
         this.setState({a: value});
-    };
+    }
 
     koefChange(event, value) {
         this.props.parent.setState({koef: value});
         this.setState({koef: value});
-    };
+    }
 
     tplprovodChange(event, value) {
         this.props.parent.setState({tplprovod: value});
         this.setState({tplprovod: value});
-    };
+    }
 
     pltChange(event, value) {
         this.props.parent.setState({plt: value});
         this.setState({plt: value});
-    };
+    }
 
     teploemChange(event, value) {
         this.props.parent.setState({teploem: value});
         this.setState({teploem: value});
-    };
+    }
 
     materialChange(event, value) {
         const obj = {
@@ -100,6 +106,7 @@ class FirstTab extends React.Component {
             tplprovod: materials[value].tplprovod,
             plt: materials[value].plt,
             teploem: materials[value].teploem,
+            lth: materials[value].lth,
         };
 
         this.props.parent.setState(obj);
@@ -216,6 +223,14 @@ class FirstTab extends React.Component {
                                 <TableRowColumn><TextField name="teploem" value={this.state.teploem}
                                                            style={{width: '75px'}}
                                                            onChange={this.teploemChange}/>{ _t('example.gcm') }
+                                </TableRowColumn>
+                                <TableRowColumn />
+                            </TableRow>
+                            <TableRow>
+                                <TableRowColumn>{ _t('example.ltec') }</TableRowColumn>
+                                <TableRowColumn><TextField name="ltec" value={this.state.lth}
+                                                           style={{width: '75px'}}
+                                                           onChange={this.lthChange}/>{ _t('example.ltecznak') }
                                 </TableRowColumn>
                                 <TableRowColumn />
                             </TableRow>

@@ -20,6 +20,7 @@ module.exports = {
         hermalConductivity: 'The thermal conductivity of metal',
         metalDensity: 'Metal density',
         heatcapacityMetal: 'The heat capacity of the metal',
+        ltec: 'Linear Temperature Expansion Coefficient',
 
         properties: 'Properties',
         values: 'Values',
@@ -34,6 +35,7 @@ module.exports = {
         mm: 'mm',
         djgrad: 'J/kg·K',
         grad: 'deg',
+        ltecznak: ' · 10⁻⁶/ ℃',
 
         name: 'Name',
         formula: 'Formula',
@@ -63,5 +65,6 @@ module.exports = {
         secondTab18: 'The desired angle, K',
 
         secondTab19: 'Angle in one pass',
+        secondTab20: 'Number of passes',
     }
 };
