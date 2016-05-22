@@ -86,7 +86,7 @@ class SecondTab extends React.Component {
             </TableRow>);
 
         if(this.state.power > 0) {
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 8; i++) {
                 let power = parseFloat(this.state.power);
                 power += power / 7 * (i + 1);
                 let angel = formulas.angle(
@@ -150,7 +150,7 @@ class SecondTab extends React.Component {
             </TableRow>);
 
         if(this.state.speed > 0) {
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 8; i++) {
                 let speed = parseFloat(this.state.speed);
                 speed += speed / 10 * (i + 1);
                 let angel = formulas.angle(
