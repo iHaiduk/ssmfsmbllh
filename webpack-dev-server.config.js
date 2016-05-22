@@ -47,14 +47,14 @@ const config = {
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
-        /*new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
             compress: { warnings: false },
             comments: false,
             mangle: true,
             minimize: true
-        }),*/
+        })
     ],
     module: {
         loaders: [
