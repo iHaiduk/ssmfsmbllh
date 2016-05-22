@@ -57,7 +57,11 @@ class Main extends React.Component {
             plt: null,
             teploem: null,
             r: 0,
-            v: 0
+            v: 0,
+
+            speed: 0,
+            power: 0,
+            think: 0
         };
     }
 
@@ -74,10 +78,6 @@ class Main extends React.Component {
     setRULang() {
         this.setState({valueLang: 3});
         counterpart.setLocale('ru');
-    }
-
-    updatePram(v, r) {
-        console.log(v, r)
     }
 
     render() {
@@ -128,10 +128,16 @@ class Main extends React.Component {
                             comTemper: this.state.comTemper,
                             a: this.state.a,                            
                             lth: this.state.lth,
-                            }}/>
+                            updateForFourth: this.updateForFourth
+                            }} ref={(c) => this.ThirdTab = c}/>
                         </Tab>
-                        <Tab label={ _t('example.tab3') } className="tab">
-                            <FourthTab lang={counterpart.getLocale()} parent={parent} />
+                        <Tab label={ _t('example.tab3') } className="tab" ref="test">
+                            <FourthTab lang={counterpart.getLocale()} parent={parent} param={{
+                            a: this.state.a,                            
+                            lth: this.state.lth,
+                            teploem: this.state.teploem,
+                            plt: this.state.plt,
+                            }} ref={(c) => this.FourthTab = c} />
                         </Tab>
                     </Tabs>
                 </div>

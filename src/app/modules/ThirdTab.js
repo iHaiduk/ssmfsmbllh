@@ -67,13 +67,18 @@ class SecondTab extends React.Component {
         };
 
         let angel = formulas.angle(
-            this.props.param.a,
-            ~~this.state.power,
-            ~~this.props.param.lth,
-            parseFloat(this.state.speed) * 1000,
-            this.props.param.teploem,
-            this.props.param.plt,
-            this.state.thickness), n = 0;
+            this.props.param.a || 0,
+            parseFloat(this.state.power || 0),
+            ~~this.props.param.lth || 0,
+            parseFloat(this.state.speed) * 1000 || 0,
+            this.props.param.teploem || 0,
+            this.props.param.plt || 0,
+            this.state.thickness || 0), n = 0;
+
+
+        if(this.props.parent.FourthTab != undefined) {
+            this.props.parent.FourthTab.updateParam(parseFloat(this.state.power), parseFloat(this.state.speed) * 1000, this.state.thickness, this.state.degrees);
+        }
 
         if(this.state.degrees != undefined && parseFloat(this.state.degrees) > 0 && angel > 0) {
             n = parseFloat(this.state.degrees) / angel;

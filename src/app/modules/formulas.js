@@ -85,6 +85,8 @@ export default {
                 t: 0, z: 0, p: 0
             }
         }
+
+        p *= 10;
         return {t, z, p};
     },
 
