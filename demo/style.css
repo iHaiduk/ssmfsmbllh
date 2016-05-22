@@ -1,3 +1,6 @@
 .tab > div > div {
     height: 44px !important;
 }
+.viewTab > div{
+    background: #605886 !important;
+}
