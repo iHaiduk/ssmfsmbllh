@@ -44,7 +44,7 @@ class SecondTab extends React.Component {
     render() {
         counterpart.setLocale(this.props.lang);
 
-        let Power = [];
+        let Power = [], Speed = [];
 
         if(this.state.power > 0) {
             for (let i = 0; i < 5; i++) {
@@ -109,6 +109,69 @@ class SecondTab extends React.Component {
         }
 
 
+
+        if(this.state.speed > 0) {
+            for (let i = 0; i < 5; i++) {
+                let speed = parseFloat(this.state.speed);
+                speed -= speed / 10 * (5 - i);
+                let angel = formulas.angle(
+                        this.props.param.a || 0,
+                        parseFloat(this.state.power || 0),
+                        ~~this.props.param.lth || 0,
+                        speed * 1000 || 0,
+                        this.props.param.teploem || 0,
+                        this.props.param.plt || 0,
+                        this.state.thickness || 0) * 1000, n = 0;
+                Speed.push(
+                    <TableRow>
+                        <TableRowColumn style={{whiteSpace: 'normal'}}>{ math.round(~~this.state.power, 4) }</TableRowColumn>
+                        <TableRowColumn style={{whiteSpace: 'normal'}}>{ math.round(speed/1000, 4) }</TableRowColumn>
+                        <TableRowColumn style={{whiteSpace: 'normal'}}>{ math.round(angel, 4) }</TableRowColumn>
+                        <TableRowColumn style={{whiteSpace: 'normal'}}>{ this.state.degrees ? math.ceil(this.state.degrees / angel) : 0 }</TableRowColumn>
+                    </TableRow>
+                );
+            }
+        }
+
+        angel = formulas.angle(
+                this.props.param.a || 0,
+                parseFloat(this.state.power || 0),
+                ~~this.props.param.lth || 0,
+                parseFloat(this.state.speed) * 1000 || 0,
+                this.props.param.teploem || 0,
+                this.props.param.plt || 0,
+                this.state.thickness || 0) * 1000;
+        Speed.push(
+            <TableRow>
+                <TableRowColumn style={{whiteSpace: 'normal'}}>{ math.round(~~this.state.power, 4) }</TableRowColumn>
+                <TableRowColumn style={{whiteSpace: 'normal'}}>{ math.round(this.state.speed/1000, 4) }</TableRowColumn>
+                <TableRowColumn style={{whiteSpace: 'normal'}}>{ math.round(angel, 4) }</TableRowColumn>
+                <TableRowColumn style={{whiteSpace: 'normal'}}>{ this.state.degrees ? math.ceil(this.state.degrees / angel) : 0 }</TableRowColumn>
+            </TableRow>);
+
+        if(this.state.speed > 0) {
+            for (let i = 0; i < 5; i++) {
+                let speed = parseFloat(this.state.speed);
+                speed += speed / 10 * (i + 1);
+                let angel = formulas.angle(
+                        this.props.param.a || 0,
+                        parseFloat(this.state.power || 0),
+                        ~~this.props.param.lth || 0,
+                        speed * 1000 || 0,
+                        this.props.param.teploem || 0,
+                        this.props.param.plt || 0,
+                        this.state.thickness || 0) * 1000, n = 0;
+                Speed.push(
+                    <TableRow>
+                        <TableRowColumn style={{whiteSpace: 'normal'}}>{ math.round(~~this.state.power, 4) }</TableRowColumn>
+                        <TableRowColumn style={{whiteSpace: 'normal'}}>{ math.round(speed/1000, 4) }</TableRowColumn>
+                        <TableRowColumn style={{whiteSpace: 'normal'}}>{ math.round(angel, 4) }</TableRowColumn>
+                        <TableRowColumn style={{whiteSpace: 'normal'}}>{ this.state.degrees ? math.ceil(this.state.degrees / angel) : 0 }</TableRowColumn>
+                    </TableRow>
+                );
+            }
+        }
+
         /*let angel = formulas.angle(
             this.props.param.a,
             ~~this.state.power,
@@ -152,20 +215,15 @@ class SecondTab extends React.Component {
                                 <TableHeader displaySelectAll={false} enableSelectAll={false} adjustForCheckbox={false}>
                                     <TableRow>
                                         <TableHeaderColumn>{ _t('example.secondTab13') }</TableHeaderColumn>
-                                        <TableHeaderColumn>{ _t('example.secondTab15') }</TableHeaderColumn>
                                         <TableHeaderColumn>{ _t('example.secondTab14') }</TableHeaderColumn>
                                         <TableHeaderColumn>{ _t('example.secondTab19') }</TableHeaderColumn>
                                         <TableHeaderColumn>{ _t('example.secondTab20') }</TableHeaderColumn>
                                     </TableRow>
                                 </TableHeader>
                                 <TableBody displayRowCheckbox={false}>
-                                    <TableRow>
-                                        <TableRowColumn style={{whiteSpace: 'normal'}}>11</TableRowColumn>
-                                        <TableRowColumn style={{whiteSpace: 'normal'}}>21</TableRowColumn>
-                                        <TableRowColumn style={{whiteSpace: 'normal'}}>31</TableRowColumn>
-                                        <TableRowColumn style={{whiteSpace: 'normal'}}>41</TableRowColumn>
-                                        <TableRowColumn style={{whiteSpace: 'normal'}}>51</TableRowColumn>
-                                    </TableRow>
+                                    {
+                                        Speed
+                                    }
                                 </TableBody>
                             </Table>
                         </Tab>
