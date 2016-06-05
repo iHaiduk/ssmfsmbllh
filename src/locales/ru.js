@@ -61,7 +61,7 @@ module.exports = {
         secondTab15: 'Радиус, мм',
 
         secondTab17: 'Толщина пластины, мм',
-        secondTab18: 'Нужный угол, K',
+        secondTab18: 'Нужный угол, град',
 
         secondTab19: 'Угол за один проход',
         secondTab20: 'Количество проходов',

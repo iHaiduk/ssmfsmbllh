@@ -22,13 +22,6 @@ export default {
         let _T = (T - T0);
         a = a/100;
         tplprovod = tplprovod/100;
-        console.log(13333311, P,
-            r,
-            T,
-            T0,
-            A,
-            a,
-            tplprovod)
 
         let q = (A * P) / (math.pi * r * r);
         let t1 = (tplprovod * _T) / q;
@@ -37,7 +30,7 @@ export default {
         let t = (t1 * t1) * t2;
 
         let z1 = (4 * a * t) / math.pi,
-            z = math.eval(`${z1} ^ (1/2)`);
+            z = math.eval(`(${z1} ^ (1/2))`);
 
         let v = math.eval(`((4096 * (${a} ^ 4) * (${A} ^ 8) * (${P} ^ 8))/( (${math.pi} ^ 12) * (${r} ^ 12) * ( ${_T} ^ 4) * (${tplprovod} ^ 8))) ^ (1/4) `);
 
@@ -59,6 +52,15 @@ export default {
         a,
         tplprovod) {
 
+        console.log(
+            V,
+            r,
+            T,
+            T0,
+            A,
+            a,
+            tplprovod);
+
         if(V == undefined || r == undefined || T == undefined || T0 == undefined || A == undefined || a == undefined || tplprovod == undefined) {
             return {
                 t: 0, z: 0, v: 0
@@ -78,7 +80,7 @@ export default {
         let t = (t1 * t1) * t2;
 
         let z1 = (4 * a * t) / math.pi,
-            z = math.eval(`${z1} ^ (1/2)`);
+            z = math.eval(`(${z1} ^ (1/2))/10`);
 
         if(String(t) == 'NaN' || String(t) == 'Infinity' || String(z) == 'NaN' || String(z) == 'Infinity' || String(p) == 'NaN' || String(p) == 'Infinity') {
             return {
@@ -98,6 +100,15 @@ export default {
         A,
         a,
         tplprovod) {
+
+        console.log(
+            V,
+            P,
+            T,
+            T0,
+            A,
+            a,
+            tplprovod);
         
         if(V == undefined || P == undefined || T == undefined || T0 == undefined || A == undefined || a == undefined || tplprovod == undefined) {
             return {
@@ -108,14 +119,14 @@ export default {
         let _T = (T - T0);
         V *= 100;
         tplprovod = tplprovod/100;
-        
-        let r = math.eval(` ( (4096 * (${a} ^ 4) * (${A} ^ 8) * (${P} ^ 8) ) / ( (${math.pi} ^ 12) * (${tplprovod} ^ 8) * (${_T} ^ 4) * ( ${V} ^ 4) ) ) ^ (1/12) `);
+
+        let r = math.eval(` 2.154438 * ( (4096 * (${a} ^ 4) * (${A} ^ 8) * (${P} ^ 8) ) / ( (${math.pi} ^ 12) * (${tplprovod} ^ 8) * (${_T} ^ 4) * ( ${V} ^ 4) ) ) ^ (1/12) `) / 10;
 
         let q = (A * P) / (math.pi * r * r);
         let t1 = (tplprovod * _T) / q;
         let t2 = math.pi / (4 * a);
 
-        let t = (t1 * t1) * t2;
+        let t = (t1 * t1) * t2 * 100;
 
         let z1 = (4 * a * t) / math.pi,
             z = math.eval(`${z1} ^ (1/2)`);
