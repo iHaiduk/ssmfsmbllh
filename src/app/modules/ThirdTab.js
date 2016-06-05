@@ -66,7 +66,10 @@ class SecondTab extends React.Component {
             self.setState({speed, radius, power});
         };
 
+        console.log(this.props.parent)
+
         let angel = formulas.angle(
+            this.props.parent.state.materialDefault,
             this.props.param.a || 0,
             parseFloat(this.state.power || 0),
             ~~this.props.param.lth || 0,

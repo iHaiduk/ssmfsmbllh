@@ -39,6 +39,9 @@ export default {
                 t: 0, z: 0, v: 0
             }
         }
+        if(v > 1000) {
+            v /= 10;
+        }
         return {t, z, v};
         
     },
@@ -139,8 +142,18 @@ export default {
         return {t, z, r};
     },
 
-    angle(A, power, lth, speed, teploem, plt, thickness) {
+    angle(material, A, power, lth, speed, teploem, plt, thickness) {
+
+        console.log(1212, A, power, lth, speed, teploem, plt, thickness)
+
+        if(material == 1 || material == 2) {
+            teploem /= 50
+        }
+
         let lb = math.eval(` (4 * ${A} * ${power} * ${lth}) / ( ${speed} * ${teploem} * ${plt} * ${thickness} * ${thickness}) `);
+        if(material == 1  || material == 2) {
+            lb /= 1.3 /(parseFloat(thickness));
+        }
         if(String(lb) != 'Infinity' && lb > 0){
             return parseFloat(lb);
         } else {

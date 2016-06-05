@@ -158,9 +158,8 @@ class SecondTab extends React.Component {
                             <TableRow>
                                 <TableRowColumn
                                     style={{whiteSpace: 'normal'}}>{ _t('example.secondTab1') }</TableRowColumn>
-                                <TableRowColumn>T` = T<sub>{ _t('example.secondTab2') }</sub> - T<sub>max</sub> - T<sub>0</sub></TableRowColumn>
-                                <TableRowColumn>T` = {this.props.param.tepl} - {this.props.param.correctTepl}
-                                    - {this.props.param.comTemper}</TableRowColumn>
+                                <TableRowColumn>T` = T<sub>{ _t('example.secondTab2') }</sub> - T<sub>max</sub></TableRowColumn>
+                                <TableRowColumn>T` = {this.props.param.tepl} - {this.props.param.correctTepl}</TableRowColumn>
                                 <TableRowColumn>{Res1}°C</TableRowColumn>
                             </TableRow>
                             <TableRow>

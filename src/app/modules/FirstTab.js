@@ -38,6 +38,9 @@ class FirstTab extends React.Component {
         this.aChange = this.aChange.bind(this);
         this.tplprovodChange = this.tplprovodChange.bind(this);
         this.handlecorrectTepl = this.handlecorrectTepl.bind(this);
+        this.lthChange = this.lthChange.bind(this);
+        this.pltChange = this.pltChange.bind(this);
+        this.teploemChange = this.teploemChange.bind(this);
 
         this.state = {
             secondSlider: 20,
@@ -48,7 +51,9 @@ class FirstTab extends React.Component {
             a: '',
             koef: '',
             tplprovod: '',
-            lth: null
+            plt: '',
+            teploem: '',
+            lth: ''
         };
     }
 
@@ -63,6 +68,7 @@ class FirstTab extends React.Component {
     }
 
     teplChange(event, value) {
+        console.log(value)
         this.props.parent.setState({tepl: value});
         this.setState({tepl: value});
     }

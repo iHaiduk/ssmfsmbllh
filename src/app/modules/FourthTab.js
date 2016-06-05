@@ -45,12 +45,14 @@ class SecondTab extends React.Component {
         counterpart.setLocale(this.props.lang);
 
         let Power = [], Speed = [];
+        console.log(12121212121, this.props.parent.state.materialDefault)
 
         if(this.state.power > 0) {
             for (let i = 0; i < 5; i++) {
                 let power = parseFloat(this.state.power);
                 power -= power / 10 * (5 - i);
                 let angel = formulas.angle(
+                        this.props.parent.state.materialDefault,
                         this.props.param.a || 0,
                         parseFloat(power || 0),
                         ~~this.props.param.lth || 0,
@@ -70,6 +72,7 @@ class SecondTab extends React.Component {
         }
 
         let angel = formulas.angle(
+                this.props.parent.state.materialDefault,
                 this.props.param.a || 0,
                 parseFloat(this.state.power || 0),
                 ~~this.props.param.lth || 0,
@@ -90,6 +93,7 @@ class SecondTab extends React.Component {
                 let power = parseFloat(this.state.power);
                 power += power / 7 * (i + 1);
                 let angel = formulas.angle(
+                        this.props.parent.state.materialDefault,
                         this.props.param.a || 0,
                         parseFloat(power || 0),
                         ~~this.props.param.lth || 0,
@@ -115,6 +119,7 @@ class SecondTab extends React.Component {
                 let speed = parseFloat(this.state.speed);
                 speed -= speed / 10 * (5 - i);
                 let angel = formulas.angle(
+                        this.props.parent.state.materialDefault,
                         this.props.param.a || 0,
                         parseFloat(this.state.power || 0),
                         ~~this.props.param.lth || 0,
@@ -134,6 +139,7 @@ class SecondTab extends React.Component {
         }
 
         angel = formulas.angle(
+                this.props.parent.state.materialDefault,
                 this.props.param.a || 0,
                 parseFloat(this.state.power || 0),
                 ~~this.props.param.lth || 0,
@@ -154,6 +160,7 @@ class SecondTab extends React.Component {
                 let speed = parseFloat(this.state.speed);
                 speed += speed / 10 * (i + 1);
                 let angel = formulas.angle(
+                        this.props.parent.state.materialDefault,
                         this.props.param.a || 0,
                         parseFloat(this.state.power || 0),
                         ~~this.props.param.lth || 0,
